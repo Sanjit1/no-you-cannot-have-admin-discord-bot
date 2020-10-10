@@ -1,0 +1,26 @@
+{
+	"name": "no-you-cannot-have-admin-discord-bot",
+	"version": "1.0.0",
+	"description": "A discord bot to censor my server(this is purely a joke I am not promoting censorship).",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Sanjit1/no-you-cannot-have-admin-discord-bot.git"
+	},
+	"keywords": [
+		"Discord"
+	],
+	"author": "Sanjit1",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Sanjit1/no-you-cannot-have-admin-discord-bot/issues"
+	},
+	"homepage": "https://github.com/Sanjit1/no-you-cannot-have-admin-discord-bot#readme",
+	"dependencies": {
+		"discord.js": "^12.3.1",
+		"dotenv": "^8.2.0"
+	}
+}
