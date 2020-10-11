@@ -17,13 +17,15 @@ var list_of_bad_words = [
     'acquire',
     'must',
     'become',
+    'handover',
     'sanjit'
 ];
 
 var list_of_supreme_leader = [
     'admin',
     'dictator',
-    'supremeleader'
+    'supremeleader',
+    'mod'
 ];
 
 console.log('ready')
