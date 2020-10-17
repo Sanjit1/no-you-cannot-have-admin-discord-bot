@@ -18,11 +18,16 @@ var list_of_bad_words = [
     'must',
     'become',
     'handover',
+    'worthy',
+    'remove',
+    'bad',
     'sanjit'
 ];
 
 var list_of_supreme_leader = [
     'admin',
+    'bot',
+    'bad',
     'dictator',
     'supremeleader',
     'mod'
@@ -49,7 +54,25 @@ client.on('message', message => {
     }
 });
 
-
+client.on('messageUpdate', (bad, message) => {
+    msg = slugify(message.content.toLowerCase()).toLowerCase();
+    bad_message = false;
+    leader_message = false;
+    list_of_bad_words.forEach(word => {
+        if (msg.includes(word)) {
+            bad_message = true;
+        }
+    });
+    list_of_supreme_leader.forEach(word => {
+        if (msg.includes(word)) {
+            leader_message = true;
+        }
+    });
+    if (bad_message && leader_message && !message.author.id.includes('sanjitsarda')) {
+        message.delete();
+        message.channel.send("No fuck off");
+    }
+});
 
 function slugify(str) {
     var map = {
