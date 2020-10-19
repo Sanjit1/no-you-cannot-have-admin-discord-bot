@@ -32,7 +32,7 @@ var list_of_supreme_leader = [
     'dictator',
     'supremeleader',
     'mod',
-    'mXu892'
+    'mxu892'
 ];
 
 console.log('ready')
