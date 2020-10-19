@@ -21,6 +21,7 @@ var list_of_bad_words = [
     'worthy',
     'remove',
     'bad',
+    'discord',
     'sanjit'
 ];
 
@@ -30,7 +31,8 @@ var list_of_supreme_leader = [
     'bad',
     'dictator',
     'supremeleader',
-    'mod'
+    'mod',
+    'mXu892'
 ];
 
 console.log('ready')
