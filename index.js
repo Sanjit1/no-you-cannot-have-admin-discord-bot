@@ -27,8 +27,6 @@ var list_of_bad_words = [
 
 var list_of_supreme_leader = [
     'admin',
-    'bot',
-    'bad',
     'dictator',
     'supremeleader',
     'mod',
