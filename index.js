@@ -21,7 +21,6 @@ var list_of_bad_words = [
     'worthy',
     'remove',
     'bad',
-    'discord',
     'sanjit'
 ];
 
