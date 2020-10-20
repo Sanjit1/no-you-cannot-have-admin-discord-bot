@@ -19,7 +19,6 @@ var list_of_bad_words = [
     'become',
     'handover',
     'worthy',
-    'remove',
     'bad',
     'sanjit'
 ];
