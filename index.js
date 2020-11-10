@@ -31,6 +31,8 @@ var list_of_supreme_leader = [
     'mxu892'
 ];
 
+client.on('ready', () => { client.user.setGame('fucking people over since 1973'); });
+
 console.log('ready')
 client.on('message', message => {
     msg = slugify(message.content.toLowerCase()).toLowerCase();
