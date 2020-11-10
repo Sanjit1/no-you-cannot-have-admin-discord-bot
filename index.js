@@ -31,7 +31,7 @@ var list_of_supreme_leader = [
     'mxu892'
 ];
 
-client.on('ready', () => { client.user.setGame('fucking people over since 1973'); });
+client.on('ready', () => { client.user.setActivity('fucking people over since 1973'); });
 
 console.log('ready')
 client.on('message', message => {
