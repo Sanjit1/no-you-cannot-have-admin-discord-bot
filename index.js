@@ -65,7 +65,7 @@ client.on('message', message => {
     });
     if (bad_message && leader_message && !message.author.id.includes('sanjitsarda')) {
         message.delete();
-        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id));
+        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id));
     }
 });
 
