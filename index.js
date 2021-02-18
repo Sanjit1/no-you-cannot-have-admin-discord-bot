@@ -1,5 +1,6 @@
 const Discord = require("discord.js"); // cheese
 require("dotenv/config");
+const axios = require("axios");
 const client = new Discord.Client();
 
 client.login(process.env.ADMIN_TOKEN);
@@ -74,6 +75,51 @@ client.on('messageUpdate', (bad, message) => {
     }
 });
 
+client.on('message', (message) => {
+    // if (message.channel.id == "") {
+    bad_message = true;
+    msg = message.content.toLowerCase();
+    if (msg == "so") {
+        bad_message = false;
+    } else if (msg.includes("https") && (msg.includes("so-") || message.includes("-so"))) {
+        axios.get(msg)
+            .then(function (response) {
+                bad_message = false;
+            })
+            .catch(function (error) {
+                bad_message = true;
+            })
+    }
+    if (bad_message) {
+        message.delete();
+        message.author.send("No Fuck off")
+    }
+    //}
+});
+
+client.on('messageUpdate', (bad, message) => {
+    // if (message.channel.id == "") {
+    bad_message = true;
+    msg = message.content.toLowerCase();
+    if (msg == "so") {
+        bad_message = false;
+    } else if (msg.includes("https") && (msg.includes("so-") || message.includes("-so"))) {
+        axios.get(msg)
+            .then(function (response) {
+                bad_message = false;
+            })
+            .catch(function (error) {
+                bad_message = true;
+            })
+    }
+    if (bad_message) {
+        message.delete();
+        message.author.send("No Fuck off")
+    }
+    //}
+});
+
+
 function slugify(str) {
     var map = {
         'a': 'á|à|ã|â|À|Á|Ã|Â|ä|α',
@@ -100,3 +146,14 @@ function slugify(str) {
 
     return str;
 };
+
+
+
+
+axios.get('')
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    })

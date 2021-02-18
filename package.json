@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/Sanjit1/no-you-cannot-have-admin-discord-bot#readme",
 	"dependencies": {
+		"axios": "^0.21.1",
 		"discord.js": "^12.3.1",
 		"dotenv": "^8.2.0"
 	}
