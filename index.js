@@ -5,6 +5,19 @@ const client = new Discord.Client();
 
 client.login(process.env.ADMIN_TOKEN);
 
+var list_of_insults = [
+    "No Fuck off",
+    "No fuck off",
+    "Shut the fuck up",
+    "SO you think you are so smart? Fuck off",
+    "Fuck off <@usern>",
+    "No Fuck off <@usern>",
+    "Eat shit",
+    "Stop acting smart",
+    "Dont make me t!ban <@usern>",
+    "<@usern> Listen to me. Somewhere there is a tree producing oxygen for you. You must apologize to it immediately."
+]
+
 var list_of_bad_words = [
     'can',
     'need',
@@ -31,6 +44,7 @@ var list_of_supreme_leader = [
     'mod',
     'mxu892'
 ];
+(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
 
 client.on('ready', () => { client.user.setActivity('fucking people over since 1973'); });
 
@@ -51,7 +65,7 @@ client.on('message', message => {
     });
     if (bad_message && leader_message && !message.author.id.includes('sanjitsarda')) {
         message.delete();
-        message.channel.send("No fuck off");
+        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id));
     }
 });
 
@@ -77,25 +91,16 @@ client.on('messageUpdate', (bad, message) => {
 
 client.on('message', (message) => {
     if (message.channel.id == "789192040633597963") {
-        bad_message = true;
-        notdoneyet = false;
         msg = message.content.toLowerCase();
-        if (msg == "so") {
-            bad_message = false;
-        } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
-            notdoneyet = true;
+        if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
             axios.get(msg)
                 .then(function (response) {
-                    bad_message = false;
-                    notdoneyet = false;
                 })
                 .catch(function (error) {
-                    bad_message = true;
-                    notdoneyet = false;
+                    message.delete();
+                    message.author.send("No Fuck off")
                 })
-        }
-        while (notdoneyet) { }
-        if (bad_message) {
+        } else if (msg != "so") {
             message.delete();
             message.author.send("No Fuck off")
         }
@@ -104,25 +109,22 @@ client.on('message', (message) => {
 
 client.on('messageUpdate', (bad, message) => {
     if (message.channel.id == "789192040633597963") {
-        bad_message = true;
         msg = message.content.toLowerCase();
-        if (msg == "so") {
-            bad_message = false;
-        } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
+        if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
             axios.get(msg)
                 .then(function (response) {
-                    bad_message = false;
                 })
                 .catch(function (error) {
-                    bad_message = true;
+                    message.delete();
+                    message.author.send("No Fuck off")
                 })
-        }
-        if (bad_message) {
+        } else if (msg != "so") {
             message.delete();
             message.author.send("No Fuck off")
         }
     }
 });
+
 
 
 function slugify(str) {
