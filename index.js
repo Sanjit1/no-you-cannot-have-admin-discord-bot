@@ -78,19 +78,24 @@ client.on('messageUpdate', (bad, message) => {
 client.on('message', (message) => {
     if (message.channel.id == "789192040633597963") {
         bad_message = true;
+        notdoneyet = false;
         msg = message.content.toLowerCase();
         if (msg == "so") {
             bad_message = false;
         } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
+            notdoneyet = true;
             axios.get(msg)
                 .then(function (response) {
                     console.log("yis")
                     bad_message = false;
+                    notdoneyet = false;
                 })
                 .catch(function (error) {
                     bad_message = true;
+                    notdoneyet = false;
                 })
         }
+        while (notdoneyet) { }
         if (bad_message) {
             console.log("gi")
             message.delete();
