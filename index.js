@@ -85,7 +85,7 @@ client.on('messageUpdate', (bad, message) => {
     });
     if (bad_message && leader_message && !message.author.id.includes('sanjitsarda')) {
         message.delete();
-        message.channel.send("No fuck off");
+        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id));
     }
 });
 
@@ -98,11 +98,11 @@ client.on('message', (message) => {
                 })
                 .catch(function (error) {
                     message.delete();
-                    message.author.send("No Fuck off")
+                    message.author.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
                 })
-        } else if (msg != "so") {
+        } else if (msg != "so" || message.attachments.size > 0) {
             message.delete();
-            message.author.send("No Fuck off")
+            message.author.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
         }
     }
 });
@@ -116,11 +116,11 @@ client.on('messageUpdate', (bad, message) => {
                 })
                 .catch(function (error) {
                     message.delete();
-                    message.author.send("No Fuck off")
+                    message.author.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
                 })
-        } else if (msg != "so") {
+        } else if (msg != "so" || message.attachments.size > 0) {
             message.delete();
-            message.author.send("No Fuck off")
+            message.author.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
         }
     }
 });
