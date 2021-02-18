@@ -86,7 +86,6 @@ client.on('message', (message) => {
             notdoneyet = true;
             axios.get(msg)
                 .then(function (response) {
-                    console.log("yis")
                     bad_message = false;
                     notdoneyet = false;
                 })
@@ -97,7 +96,6 @@ client.on('message', (message) => {
         }
         while (notdoneyet) { }
         if (bad_message) {
-            console.log("gi")
             message.delete();
             message.author.send("No Fuck off")
         }
