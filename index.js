@@ -84,6 +84,7 @@ client.on('message', (message) => {
         } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
             axios.get(msg)
                 .then(function (response) {
+                    console.log("yis")
                     bad_message = false;
                 })
                 .catch(function (error) {
@@ -91,6 +92,7 @@ client.on('message', (message) => {
                 })
         }
         if (bad_message) {
+            console.log("gi")
             message.delete();
             message.author.send("No Fuck off")
         }
