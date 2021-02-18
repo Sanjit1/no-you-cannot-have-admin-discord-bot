@@ -81,7 +81,7 @@ client.on('message', (message) => {
     msg = message.content.toLowerCase();
     if (msg == "so") {
         bad_message = false;
-    } else if (msg.includes("https") && (msg.includes("so-") || message.includes("-so"))) {
+    } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
         axios.get(msg)
             .then(function (response) {
                 bad_message = false;
@@ -103,7 +103,7 @@ client.on('messageUpdate', (bad, message) => {
     msg = message.content.toLowerCase();
     if (msg == "so") {
         bad_message = false;
-    } else if (msg.includes("https") && (msg.includes("so-") || message.includes("-so"))) {
+    } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
         axios.get(msg)
             .then(function (response) {
                 bad_message = false;
