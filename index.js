@@ -44,7 +44,7 @@ var list_of_supreme_leader = [
     'mod',
     'mxu892'
 ];
-(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
+//(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
 
 client.on('ready', () => { client.user.setActivity('fucking people over since 1973'); });
 
