@@ -76,47 +76,47 @@ client.on('messageUpdate', (bad, message) => {
 });
 
 client.on('message', (message) => {
-    // if (message.channel.id == "") {
-    bad_message = true;
-    msg = message.content.toLowerCase();
-    if (msg == "so") {
-        bad_message = false;
-    } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
-        axios.get(msg)
-            .then(function (response) {
-                bad_message = false;
-            })
-            .catch(function (error) {
-                bad_message = true;
-            })
+    if (message.channel.id == "") {
+        bad_message = true;
+        msg = message.content.toLowerCase();
+        if (msg == "so") {
+            bad_message = false;
+        } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
+            axios.get(msg)
+                .then(function (response) {
+                    bad_message = false;
+                })
+                .catch(function (error) {
+                    bad_message = true;
+                })
+        }
+        if (bad_message) {
+            message.delete();
+            message.author.send("No Fuck off")
+        }
     }
-    if (bad_message) {
-        message.delete();
-        message.author.send("No Fuck off")
-    }
-    //}
 });
 
 client.on('messageUpdate', (bad, message) => {
-    // if (message.channel.id == "") {
-    bad_message = true;
-    msg = message.content.toLowerCase();
-    if (msg == "so") {
-        bad_message = false;
-    } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
-        axios.get(msg)
-            .then(function (response) {
-                bad_message = false;
-            })
-            .catch(function (error) {
-                bad_message = true;
-            })
+    if (message.channel.id == "") {
+        bad_message = true;
+        msg = message.content.toLowerCase();
+        if (msg == "so") {
+            bad_message = false;
+        } else if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
+            axios.get(msg)
+                .then(function (response) {
+                    bad_message = false;
+                })
+                .catch(function (error) {
+                    bad_message = true;
+                })
+        }
+        if (bad_message) {
+            message.delete();
+            message.author.send("No Fuck off")
+        }
     }
-    if (bad_message) {
-        message.delete();
-        message.author.send("No Fuck off")
-    }
-    //}
 });
 
 
