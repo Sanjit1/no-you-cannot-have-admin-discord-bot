@@ -76,7 +76,7 @@ client.on('messageUpdate', (bad, message) => {
 });
 
 client.on('message', (message) => {
-    if (message.channel.id == "") {
+    if (message.channel.id == "789192040633597963") {
         bad_message = true;
         msg = message.content.toLowerCase();
         if (msg == "so") {
@@ -98,7 +98,7 @@ client.on('message', (message) => {
 });
 
 client.on('messageUpdate', (bad, message) => {
-    if (message.channel.id == "") {
+    if (message.channel.id == "789192040633597963") {
         bad_message = true;
         msg = message.content.toLowerCase();
         if (msg == "so") {
