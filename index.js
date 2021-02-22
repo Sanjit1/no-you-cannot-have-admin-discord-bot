@@ -166,7 +166,6 @@ client.on('message', (message) => {
             if (usedAFuck.has(message.author.id)) {
                 message.channel.send("<@" + message.author.id + "> you are not the great sifu. You have a cooldown on afuck")
             } else {
-                usedAFuck.add(message.author.id);
                 if (message.content.toLowerCase().split(' ').length < 3) {
                     message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
                     message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
@@ -174,9 +173,11 @@ client.on('message', (message) => {
                     id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, message.content.toLowerCase().split(' ')[2].length - 1);
                     if (message.guild.member(id_i_guess)) {
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
+                        usedAFuck.add(message.author.id);
                         setTimeout(() => {
                             usedAFuck.delete(message.author.id);
-                        }, 10000);
+                        }, 5000);
+
                     } else {
                         message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
