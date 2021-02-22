@@ -37,8 +37,7 @@ var list_of_named_insults = [
     "<@usern> You are a great treasure to scientists, since you are living proof that you can live without a brain.",
     "Wtf are yall doing? Who left <@usern>'s cage open?",
     "Look as much as I want to beat <@usern> up, I still have to fear PETA.",
-    "People often think that the Burj Khalifa is the highest place you could possibly jump off of, but the truth is if you climbed to <@usern>'s ego, and jumped to their IQ, its a low enough drop to kill you over 1000 times.",
-    ""
+    "<@usern> Do you have trouble getting hard during the morning, or can you just not tell."
 ]
 
 var list_of_insults = list_of_named_insults.concat(list_of_nameless_insults);
