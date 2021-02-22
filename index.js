@@ -150,7 +150,7 @@ client.on('message', (message) => {
             }
         } else {
             if (usedAFuck.has(message.author.id)) {
-                message.channel.send("<!@" + message.author.id + "> you are not the great sifu. You have a cooldown on afuck")
+                message.channel.send("<@" + message.author.id + "> you are not the great sifu. You have a cooldown on afuck")
             } else {
                 usedAFuck.add(message.author.id);
                 if (message.content.toLowerCase().split(' ').length < 3) {
@@ -162,7 +162,7 @@ client.on('message', (message) => {
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
                         setTimeout(() => {
                             usedAFuck.delete(message.author.id);
-                        }, 120000);
+                        }, 30000);
                     } else {
                         message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
