@@ -14,8 +14,10 @@ var list_of_insults = [
     "No Fuck off <@usern>",
     "Eat shit",
     "Stop acting smart",
-    "Dont make me t!ban <@usern>",
-    "<@usern> Listen to me. Somewhere there is a tree producing oxygen for you. You must apologize to it immediately."
+    "Dont make me t@ban <@usern>",
+    "<@usern> Listen to me. Somewhere there is a tree producing oxygen for you. You must apologize to it immediately.",
+    "When I see <@usern>'s face, I would never change a thing. Except for the direction I am walking",
+
 ]
 
 var list_of_bad_words = [
@@ -125,6 +127,12 @@ client.on('messageUpdate', (bad, message) => {
     }
 });
 
+
+client.on('message', (message) => {
+    if (message.author.id == "542937555251888143" && message.content.toLowerCase().startsWith == "afuck") {
+        console.log(message.content)
+    }
+});
 
 
 function slugify(str) {
