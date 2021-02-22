@@ -22,7 +22,6 @@ var list_of_nameless_insults = [
 var list_of_named_insults = [
     "Fuck off <@usern>",
     "Eat shit <@usern>",
-    "Stop acting smart",
     "Dont make me t@ban <@usern>",
     "<@usern> Listen to me. Somewhere there is a tree producing oxygen for you. You must apologize to it immediately.",
     "When I see <@usern>'s face, I would never change a thing. Except for the direction I am walking",
