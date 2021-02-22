@@ -13,7 +13,10 @@ var list_of_nameless_insults = [
     "SO you think you are so smart? Fuck off",
     "No Fuck off <@usern>",
     "Eat shit",
-    "Stop acting smart"
+    "Stop acting smart",
+    "Do you love nature despite what it did to you.",
+    "Dont waste my time.",
+    "Dont worry there are other people who are not talented."
 ]
 
 var list_of_named_insults = [
@@ -22,7 +25,20 @@ var list_of_named_insults = [
     "Stop acting smart",
     "Dont make me t@ban <@usern>",
     "<@usern> Listen to me. Somewhere there is a tree producing oxygen for you. You must apologize to it immediately.",
-    "When I see <@usern>'s face, I would never change a thing. Except for the direction I am walking"
+    "When I see <@usern>'s face, I would never change a thing. Except for the direction I am walking",
+    "I'm already visualizing the duct tape over <@usern>'s mouth.",
+    "Are <@usern>'s parents siblings? Nevermind it is pretty obvious.",
+    "Ya know <@usern> is a good example of the benefits of roe v wade",
+    "Can anyone even imagine how <@usern>'s life would be if <@usern> got enough oxygen during birth.",
+    "<@usern> your ass must be jealous of the shit that comes out of your mouth.",
+    "This server has many humans, and a few bots. But <@usern> you bring us diversity, since you are a monkey",
+    "Look <@usern>. I'd kick your teeth, but I have no intentions to improve your looks. If you could call them looks",
+    "<@usern> How have you not sued your parents for giving you this face?",
+    "<@usern> You are a great treasure to scientists, since you are living proof that you can live without a brain.",
+    "Wtf are yall doing? Who left <@usern>'s cage open?",
+    "Look as much as I want to beat <@usern> up, I still have to fear PETA.",
+    "People often think that the Burj Khalifa is the highest place you could possibly jump off of, but the truth is if you climbed to <@usern>'s ego, and jumped to their IQ, its a low enough drop to kill you over 1000 times.",
+    ""
 ]
 
 var list_of_insults = list_of_named_insults.concat(list_of_nameless_insults);
