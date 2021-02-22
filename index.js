@@ -2,6 +2,7 @@ const Discord = require("discord.js"); // cheese
 require("dotenv/config");
 const axios = require("axios");
 const client = new Discord.Client();
+const usedAFuck = new Set();
 
 client.login(process.env.ADMIN_TOKEN);
 
@@ -129,8 +130,32 @@ client.on('messageUpdate', (bad, message) => {
 
 
 client.on('message', (message) => {
-    if (message.author.id == "542937555251888143" && message.content.toLowerCase().startsWith("afuck")) {
-        console.log(message.content);
+    if (message.content.toLowerCase().startsWith("afuck you ")) {
+        if (message.author.id == "542937555251888143") {
+            id_i_guess = (message.content.toLowerCase.split(' ')[2]).substring(3, josh.length - 1);
+            if (message.guild.member(id_i_guess)) {
+                message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+            } else {
+                message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
+                message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+            }
+        } else {
+            if (usedAFuck.has(message.author.id)) {
+                message.channel.send("<!@" + message.author.id + "> you are not the great sifu. You have a cooldown on afuck")
+            } else {
+                usedAFuck.add(message.author.id);
+                id_i_guess = (message.content.toLowerCase.split(' ')[2]).substring(3, josh.length - 1);
+                if (message.guild.member(id_i_guess)) {
+                    message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+                } else {
+                    message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
+                    message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+                }
+                setTimeout(() => {
+                    usedAFuck.delete(message.author.id);
+                }, 120000);
+            }
+        }
     }
 });
 
