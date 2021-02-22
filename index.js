@@ -6,20 +6,26 @@ const usedAFuck = new Set();
 
 client.login(process.env.ADMIN_TOKEN);
 
-var list_of_insults = [
+var list_of_nameless_insults = [
     "No Fuck off",
     "No fuck off",
     "Shut the fuck up",
     "SO you think you are so smart? Fuck off",
-    "Fuck off <@usern>",
     "No Fuck off <@usern>",
     "Eat shit",
+    "Stop acting smart"
+]
+
+var list_of_named_insults = [
+    "Fuck off <@usern>",
+    "Eat shit <@usern>",
     "Stop acting smart",
     "Dont make me t@ban <@usern>",
     "<@usern> Listen to me. Somewhere there is a tree producing oxygen for you. You must apologize to it immediately.",
-    "When I see <@usern>'s face, I would never change a thing. Except for the direction I am walking",
-
+    "When I see <@usern>'s face, I would never change a thing. Except for the direction I am walking"
 ]
+
+var list_of_insults = list_of_named_insults.concat(list_of_nameless_insults);
 
 var list_of_bad_words = [
     'can',
@@ -137,7 +143,7 @@ client.on('message', (message) => {
             } else {
                 id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, message.content.toLowerCase().split(' ')[2].length - 1);
                 if (message.guild.member(id_i_guess)) {
-                    message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+                    message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
                 } else {
                     message.channel.send("Sifu i think you mistyped");
                 }
@@ -149,17 +155,17 @@ client.on('message', (message) => {
                 usedAFuck.add(message.author.id);
                 if (message.content.toLowerCase().split(' ').length < 3) {
                     message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
-                    message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+                    message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
                 } else {
                     id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, message.content.toLowerCase().split(' ')[2].length - 1);
                     if (message.guild.member(id_i_guess)) {
-                        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+                        message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
                         setTimeout(() => {
                             usedAFuck.delete(message.author.id);
                         }, 120000);
                     } else {
                         message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
-                        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+                        message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
                     }
                 }
             }
