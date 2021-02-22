@@ -129,8 +129,8 @@ client.on('messageUpdate', (bad, message) => {
 
 
 client.on('message', (message) => {
-    if (message.author.id == "542937555251888143" && message.content.toLowerCase().startsWith == "afuck") {
-        console.log(message.content)
+    if (message.author.id == "542937555251888143" && message.content.toLowerCase().startsWith("afuck")) {
+        console.log(message.content);
     }
 });
 
