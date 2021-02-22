@@ -132,28 +132,36 @@ client.on('messageUpdate', (bad, message) => {
 client.on('message', (message) => {
     if (message.content.toLowerCase().startsWith("afuck you ")) {
         if (message.author.id == "542937555251888143") {
-            id_i_guess = (message.content.toLowerCase.split(' ')[2]).substring(3, josh.length - 1);
-            if (message.guild.member(id_i_guess)) {
-                message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+            if (message.content.toLowerCase().split(' ').length < 3) {
+                message.channel.send("Sifu i think you mistyped");
             } else {
-                message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
-                message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+                id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, josh.length - 1);
+                if (message.guild.member(id_i_guess)) {
+                    message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+                } else {
+                    message.channel.send("Sifu i think you mistyped");
+                }
             }
         } else {
             if (usedAFuck.has(message.author.id)) {
                 message.channel.send("<!@" + message.author.id + "> you are not the great sifu. You have a cooldown on afuck")
             } else {
                 usedAFuck.add(message.author.id);
-                id_i_guess = (message.content.toLowerCase.split(' ')[2]).substring(3, josh.length - 1);
-                if (message.guild.member(id_i_guess)) {
-                    message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
-                } else {
+                if (message.content.toLowerCase().split(' ').length < 3) {
                     message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
                     message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+                } else {
+                    id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, josh.length - 1);
+                    if (message.guild.member(id_i_guess)) {
+                        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", id_i_guess))
+                        setTimeout(() => {
+                            usedAFuck.delete(message.author.id);
+                        }, 120000);
+                    } else {
+                        message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
+                        message.channel.send((list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.author.id))
+                    }
                 }
-                setTimeout(() => {
-                    usedAFuck.delete(message.author.id);
-                }, 120000);
             }
         }
     }
