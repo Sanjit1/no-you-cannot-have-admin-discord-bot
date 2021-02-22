@@ -176,7 +176,7 @@ client.on('message', (message) => {
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
                         setTimeout(() => {
                             usedAFuck.delete(message.author.id);
-                        }, 30000);
+                        }, 10000);
                     } else {
                         message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
