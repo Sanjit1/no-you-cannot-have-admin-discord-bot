@@ -29,7 +29,7 @@ var list_of_named_insults = [
     "I'm already visualizing the duct tape over <@usern>'s mouth.",
     "Are <@usern>'s parents siblings? Nevermind it is pretty obvious.",
     "Ya know <@usern> is a good example of the benefits of roe v wade",
-    "Can anyone even imagine how <@usern>'s life would be if <@usern> got enough oxygen during birth.",
+    "Can anyone even imagine how <@usern>'s life would be if they got enough oxygen during birth.",
     "<@usern> your ass must be jealous of the shit that comes out of your mouth.",
     "This server has many humans, and a few bots. But <@usern> you bring us diversity, since you are a monkey",
     "Look <@usern>. I'd kick your teeth, but I have no intentions to improve your looks. If you could call them looks",
@@ -114,7 +114,7 @@ client.on('messageUpdate', (bad, message) => {
 });
 
 client.on('message', (message) => {
-    if (message.channel.id == "789192040633597963") {
+    if (message.channel.id == "789192040633597963" || message.channel.id == "813501805988020286") {
         msg = message.content.toLowerCase();
         if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
             axios.get(msg)
@@ -132,7 +132,7 @@ client.on('message', (message) => {
 });
 
 client.on('messageUpdate', (bad, message) => {
-    if (message.channel.id == "789192040633597963") {
+    if (message.channel.id == "789192040633597963" || message.channel.id == "813501805988020286") {
         msg = message.content.toLowerCase();
         if (msg.includes("https") && (msg.includes("so-") || msg.includes("-so"))) {
             axios.get(msg)
@@ -151,7 +151,7 @@ client.on('messageUpdate', (bad, message) => {
 
 
 client.on('message', (message) => {
-    if (message.content.toLowerCase().startsWith("afuck you")) {
+    if (message.content.toLowerCase().startsWith("afuck you ")) {
         if (message.author.id == "542937555251888143") {
             if (message.content.toLowerCase().split(' ').length < 3) {
                 message.channel.send("Sifu i think you mistyped");
