@@ -152,7 +152,7 @@ client.on('messageUpdate', (bad, message) => {
 client.on('message', (message) => {
     if (message.content.toLowerCase().startsWith("afuck you ") || message.content.toLowerCase().startsWith("fuck you cunt ")) {
         if (message.author.id == "542937555251888143") {
-            if (message.content.toLowerCase().split(' ').length < 3) {
+            if ((message.content.toLowerCase().split(' ').length < 3 && message.content.toLowerCase().startsWith("afuck you ")) || (message.content.toLowerCase().split(' ').length < 4 && message.content.toLowerCase().startsWith("fuck you cunt "))) {
                 message.channel.send("Sifu i think you mistyped");
             } else {
                 id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, message.content.toLowerCase().split(' ')[2].length - 1);
