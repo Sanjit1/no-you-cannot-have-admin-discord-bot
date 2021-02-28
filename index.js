@@ -152,6 +152,7 @@ client.on('messageUpdate', (bad, message) => {
 client.on('message', (message) => {
     messageString = message.content.toLowerCase();
     if (messageString.startsWith("afuck you ") || messageString.startsWith("fuck you cunt ")) {
+        console.log(messageString);
         if (messageString.startsWith("fuck you cunt")) {
             messageString = messageString.split('uck y')[1];
             console.log(messageString);
