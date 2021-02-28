@@ -153,7 +153,7 @@ client.on('message', (message) => {
     messageString = message.content.toLowerCase();
     if (messageString.startsWith("afuck you ") || messageString.startsWith("fuck you cunt ")) {
         if (messageString.startsWith("fuck you cunt")) {
-            messageString = messageString.split('uck')[1];
+            messageString = messageString.split('uck ')[1];
         }
         if (message.author.id == "542937555251888143") {
             if (messageString.split(' ').length < 3) {
