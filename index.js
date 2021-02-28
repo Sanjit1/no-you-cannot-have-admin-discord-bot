@@ -150,7 +150,7 @@ client.on('messageUpdate', (bad, message) => {
 
 
 client.on('message', (message) => {
-    if (message.content.toLowerCase().startsWith("afuck you ")) {
+    if (message.content.toLowerCase().startsWith("afuck you ") || message.content.toLowerCase().startsWith("fuck you cunt ")) {
         if (message.author.id == "542937555251888143") {
             if (message.content.toLowerCase().split(' ').length < 3) {
                 message.channel.send("Sifu i think you mistyped");
