@@ -150,12 +150,16 @@ client.on('messageUpdate', (bad, message) => {
 
 
 client.on('message', (message) => {
-    if (message.content.toLowerCase().startsWith("afuck you ") || message.content.toLowerCase().startsWith("fuck you cunt ")) {
+    messageString = message.content.toLowerCase();
+    if (messageString.startsWith("afuck you ") || messageString.startsWith("fuck you cunt ")) {
+        if (messageString.startsWith("fuck you cunt")) {
+            messageString = messageString.split('uck')[1];
+        }
         if (message.author.id == "542937555251888143") {
-            if (message.content.toLowerCase().split(' ').length < 3 || (message.content.toLowerCase().split(' ')[2] == "cunt" && message.content.toLowerCase().split(' ').length < 4)) {
+            if (messageString.split(' ').length < 3) {
                 message.channel.send("Sifu i think you mistyped");
             } else {
-                id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, message.content.toLowerCase().split(' ')[2].length - 1);
+                id_i_guess = (messageString.split(' ')[2]).substring(3, messageString.split(' ')[2].length - 1);
                 if (message.guild.member(id_i_guess)) {
                     message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
                 } else {
@@ -166,11 +170,11 @@ client.on('message', (message) => {
             if (usedAFuck.has(message.author.id)) {
                 message.channel.send("<@" + message.author.id + "> you are not the great sifu. You have a cooldown on afuck")
             } else {
-                if (message.content.toLowerCase().split(' ').length < 3) {
+                if (messageString.split(' ').length < 3) {
                     message.channel.send("Stop trying to fuck me over. The great Sifu Knows how to code.");
                     message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", message.author.id))
                 } else {
-                    id_i_guess = (message.content.toLowerCase().split(' ')[2]).substring(3, message.content.toLowerCase().split(' ')[2].length - 1);
+                    id_i_guess = (messageString.split(' ')[2]).substring(3, messageString.split(' ')[2].length - 1);
                     if (message.guild.member(id_i_guess)) {
                         message.channel.send((list_of_named_insults[Math.floor(Math.random() * list_of_named_insults.length)]).replace("usern", id_i_guess))
                         usedAFuck.add(message.author.id);
