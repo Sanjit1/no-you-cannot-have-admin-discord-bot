@@ -218,7 +218,6 @@ function slugify(str) {
 
     for (var pattern in map) {
         str = str.replace(new RegExp(map[pattern], 'g'), pattern);
-        console.log(str);
     };
 
     return str;
