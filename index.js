@@ -73,6 +73,11 @@ client.on('ready', () => { client.user.setActivity('fucking people over since 19
 
 console.log('ready')
 client.on('message', message => {
+    if (message.content.includes('rob sanjit') || message.content.includes('rob 542937555251888143')) {
+        messageLink = ''
+        client.users.fetch('542937555251888143')
+            .then(user => user.send('SIFU SIFU, <@!' + message.author.id + '> WANTS TO ROB YOU. ' + message.url))
+    }
     msg = slugify(message.content.toLowerCase()).toLowerCase();
     bad_message = false;
     leader_message = false;
