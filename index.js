@@ -69,7 +69,19 @@ var list_of_supreme_leader = [
 ];
 //(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
 
-client.on('ready', () => { client.user.setActivity('fucking people over since 1973'); });
+client.on('ready', () => { // Set Status
+    client.user.setActivity('fucking people over since 1973');
+    // Make sure that Heff has pleb role
+    factory = client.guilds.cache.get('757105751188832267');
+    factory.members.fetch().then(members => {
+        setInterval(() => {
+            if (!(members.get('496127160256299021').roles.cache.some(role => role.id == "820409699798614036"))) {
+                members.get('496127160256299021').roles.add(factory.roles.cache.get("820409699798614036"));
+            }
+        }, 100);
+    });
+});
+
 
 console.log('ready')
 client.on('message', message => {
