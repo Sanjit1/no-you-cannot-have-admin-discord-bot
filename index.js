@@ -80,14 +80,10 @@ client.on('ready', () => { // Set Status
         setInterval(() => {
             list_of_pleb_roles.forEach((pleb_role) => {
                 list_of_plebs.forEach((pleb) => {
-                    if (!(members.get(pleb).roles.cache.some(role => role.id == pleb_role))) {
-                        members.get(pleb).roles.add(factory.roles.cache.get(pleb_role));
-                    }
+                    members.get(pleb).roles.add(factory.roles.cache.get(pleb_role));
                 });
                 list_of_not_plebs.forEach((not_pleb) => {
-                    if ((members.get(not_pleb).roles.cache.some(role => role.id == pleb_role))) {
-                        members.get(not_pleb).roles.remove(factory.roles.cache.get(pleb_role));
-                    }
+                    members.get(not_pleb).roles.remove(factory.roles.cache.get(pleb_role));
                 });
             });
         }, 5);
