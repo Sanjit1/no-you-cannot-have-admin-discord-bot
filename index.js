@@ -76,16 +76,19 @@ client.on('ready', () => { // Set Status
     factory.members.fetch().then(members => {
         list_of_plebs = ['496127160256299021', '542199842278211594', '302590719166775297'];
         list_of_not_plebs = ['542937555251888143', '392538882987524097', '375435951154921472'];
+        list_of_pleb_roles = ['820466422126870549', '820409699798614036'];
         setInterval(() => {
-            list_of_plebs.forEach((pleb) => {
-                if (!(members.get(pleb).roles.cache.some(role => role.id == "820409699798614036"))) {
-                    members.get(pleb).roles.add(factory.roles.cache.get("820409699798614036"));
-                }
-            });
-            list_of_not_plebs.forEach((not_pleb) => {
-                if ((members.get(not_pleb).roles.cache.some(role => role.id == "820409699798614036"))) {
-                    members.get(not_pleb).roles.remove(factory.roles.cache.get("820409699798614036"));
-                }
+            list_of_pleb_roles.forEach((pleb_role) => {
+                list_of_plebs.forEach((pleb) => {
+                    if (!(members.get(pleb).roles.cache.some(role => role.id == pleb_role))) {
+                        members.get(pleb).roles.add(factory.roles.cache.get(pleb_role));
+                    }
+                });
+                list_of_not_plebs.forEach((not_pleb) => {
+                    if ((members.get(not_pleb).roles.cache.some(role => role.id == pleb_role))) {
+                        members.get(not_pleb).roles.remove(factory.roles.cache.get(pleb_role));
+                    }
+                });
             });
         }, 50);
     });
