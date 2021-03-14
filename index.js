@@ -76,7 +76,7 @@ client.on('ready', () => { // Set Status
     factory.members.fetch().then(members => {
         list_of_plebs = ['496127160256299021', '542199842278211594', '302590719166775297'];
         list_of_not_plebs = ['542937555251888143', '392538882987524097', '375435951154921472'];
-        list_of_pleb_roles = ['820466422126870549', '820409699798614036'];
+        list_of_pleb_roles = ['820409699798614036', '820466422126870549'];
         setInterval(() => {
             list_of_pleb_roles.forEach((pleb_role) => {
                 list_of_plebs.forEach((pleb) => {
@@ -90,7 +90,7 @@ client.on('ready', () => { // Set Status
                     }
                 });
             });
-        }, 50);
+        }, 5);
     });
 });
 
