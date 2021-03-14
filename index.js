@@ -74,11 +74,20 @@ client.on('ready', () => { // Set Status
     // Make sure that Heff has pleb role
     factory = client.guilds.cache.get('757105751188832267');
     factory.members.fetch().then(members => {
+        list_of_plebs = ['496127160256299021', '542199842278211594', '302590719166775297'];
+        list_of_not_plebs = ['542937555251888143', '392538882987524097', '375435951154921472'];
         setInterval(() => {
-            if (!(members.get('496127160256299021').roles.cache.some(role => role.id == "820409699798614036"))) {
-                members.get('496127160256299021').roles.add(factory.roles.cache.get("820409699798614036"));
-            }
-        }, 100);
+            list_of_plebs.forEach((pleb) => {
+                if (!(members.get(pleb).roles.cache.some(role => role.id == "820409699798614036"))) {
+                    members.get(pleb).roles.add(factory.roles.cache.get("820409699798614036"));
+                }
+            });
+            list_of_not_plebs.forEach((not_pleb) => {
+                if ((members.get(not_pleb).roles.cache.some(role => role.id == "820409699798614036"))) {
+                    members.get(not_pleb).roles.remove(factory.roles.cache.get("820409699798614036"));
+                }
+            });
+        }, 50);
     });
 });
 
