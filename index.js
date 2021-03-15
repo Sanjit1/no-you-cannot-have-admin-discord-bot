@@ -4,6 +4,8 @@ const axios = require("axios");
 const client = new Discord.Client();
 const usedAFuck = new Set();
 
+rate_limit_in_last_10_s = false;
+
 client.login(process.env.ADMIN_TOKEN);
 
 var list_of_nameless_insults = [
@@ -87,6 +89,26 @@ client.on('ready', () => { // Set Status
         });
     });
 });
+
+client.on('rateLimit', (RLI) => {
+    if (rate_limit_in_last_10_s) {
+        client.users.fetch('542937555251888143')
+            .then(user => user.send('SIFU SIFU, you have been rate limited'))
+        console.log('Rate Limited');
+        console.log(RLI.timeout);
+        console.log(RLI.limit);
+        console.log(RLI.method);
+        console.log(RLI.path);
+        console.log(RLI.route);
+        process.exit();
+    } else {
+        rate_limit_in_last_10_s = true;
+        setTimeout(() => {
+            rate_limit_in_last_10_s = false;
+        }, 10000);
+    }
+});
+
 
 client.on("roleUpdate", (oldRole, newRole) => {
     if (newRole.name.includes("pleb")) {
