@@ -72,6 +72,7 @@ var list_of_supreme_leader = [
 client.on('ready', () => { // Set Status
     client.user.setActivity('fucking people over since 1973');
     // Make sure that Heff has pleb role
+    /*
     factory = client.guilds.cache.get('757105751188832267');
     factory.members.fetch().then(members => {
         list_of_plebs = ['496127160256299021', '542199842278211594', '302590719166775297'];
@@ -88,6 +89,7 @@ client.on('ready', () => { // Set Status
             });
         }, 5);
     });
+    */
 });
 
 
