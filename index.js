@@ -70,30 +70,18 @@ var list_of_supreme_leader = [
     'mxu892'
 ];
 //(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
-list_of_plebs = ['496127160256299021', '542199842278211594', '302590719166775297'];
-list_of_not_plebs = ['542937555251888143', '392538882987524097', '375435951154921472'];
-list_of_pleb_roles = ['820409699798614036', '820466422126870549', '820917000028553226'];
 
 client.on('ready', () => { // Set Status
     client.user.setActivity('fucking people over since 1973');
-    // Make sure that all the plebs have pleb roles
-    factory = client.guilds.cache.get('757105751188832267');
-    factory.members.fetch().then(members => {
-        list_of_pleb_roles.forEach((pleb_role) => {
-            list_of_plebs.forEach((pleb) => {
-                members.get(pleb).roles.add(factory.roles.cache.get(pleb_role));
-            });
-            list_of_not_plebs.forEach((not_pleb) => {
-                members.get(not_pleb).roles.remove(factory.roles.cache.get(pleb_role));
-            });
-        });
-    });
 });
 
 client.on('rateLimit', (RLI) => {
     if (rate_limit_in_last_10_s) {
         client.users.fetch('542937555251888143')
-            .then(user => user.send('SIFU SIFU, you have been rate limited'))
+            .then(user => user.send('SIFU SIFU, you have been rate limited'));
+        setTimeout(() => {
+
+        }, 1000);
         console.log('Rate Limited');
         console.log(RLI.timeout);
         console.log(RLI.limit);
@@ -118,10 +106,6 @@ client.on("roleUpdate", (oldRole, newRole) => {
             newRole.setName(oldRole.name);
         }
     }
-});
-
-client.on("roleDelete", (deleted) => {
-
 });
 
 
