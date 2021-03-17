@@ -97,33 +97,6 @@ client.on('rateLimit', (RLI) => {
     }
 });
 
-
-client.on("roleUpdate", (oldRole, newRole) => {
-    if (newRole.name.includes("pleb")) {
-        if (oldRole.name == "new role") {
-            newRole.delete();
-        } else {
-            newRole.setName(oldRole.name);
-        }
-    }
-});
-
-
-// Make sure that all the plebs have pleb roles
-client.on("guildMemberUpdate", (oldPerson, newPerson) => {
-    factory = client.guilds.cache.get('757105751188832267');
-    if (oldPerson.roles.cache.size > newPerson.roles.cache.size && list_of_plebs.includes(newPerson.id)) {
-        list_of_pleb_roles.forEach((pleb_role) => {
-            newPerson.roles.add(factory.roles.cache.get(pleb_role));
-        });
-    }
-    if (oldPerson.roles.cache.size < newPerson.roles.cache.size && list_of_not_plebs.includes(newPerson.id)) {
-        list_of_pleb_roles.forEach((pleb_role) => {
-            newPerson.roles.remove(factory.roles.cache.get(pleb_role));
-        });
-    }
-});
-
 console.log('ready')
 client.on('message', message => {
     if (message.content.includes('rob sanjit') || message.content.includes('rob 542937555251888143')) {
@@ -271,7 +244,7 @@ function slugify(str) {
         'u': 'ú|ù|û|ü|Ú|Ù|Û|Ü',
         'v': 'ｖ',
         'n': 'ñ|Ñ|ń|ｎ',
-        '': ' |,|\\.|\\*'
+        '': ' |,|\\.|\\*|-'
     };
 
     for (var pattern in map) {
