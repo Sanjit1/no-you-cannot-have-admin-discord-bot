@@ -90,14 +90,38 @@ var list_of_roles = [
     "798398458323009546"
 ]
 
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 //(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
 
 client.on('ready', () => { // Set Status
     client.user.setActivity('fucking people over since 1973');
-    console.log('ready')
+    console.log('ready');
+    factory = client.guilds.cache.get('757105751188832267');
+    factory.members.fetch();
     setInterval(() => {
-
-    }, 3600000)
+        role = list_of_roles[Math.floor(Math.random() * list_of_roles.length)];
+        factory.roles.cache.get(role).setPosition(factory.roles.cache.size - 6);
+        user = factory.members.cache.filter(member => member.roles.cache.get(role)).first();
+        factory.channels.cache.get('757105751691886666').send(user.nickname ? user.nickname : user.user.username)
+    }, 514285)
 });
 
 client.on('rateLimit', (RLI) => {
