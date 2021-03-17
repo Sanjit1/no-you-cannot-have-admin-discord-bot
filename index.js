@@ -69,10 +69,35 @@ var list_of_supreme_leader = [
     'mod',
     'mxu892'
 ];
+
+var ppl_roles = {
+    "496127160256299021": "821560443482013747",
+    "375435951154921472": "821559956871708713",
+    "542199842278211594": "821555925470543883",
+    "392538882987524097": "808552991106793514",
+    "302590719166775297": "788643652116807721",
+    "430156134909739008": "763891335882342420",
+    "310868758417768449": "798398458323009546"
+}
+
+var list_of_roles = [
+    "821560443482013747",
+    "821559956871708713",
+    "821555925470543883",
+    "808552991106793514",
+    "788643652116807721",
+    "763891335882342420",
+    "798398458323009546"
+]
+
 //(list_of_insults[Math.floor(Math.random() * list_of_insults.length)]).replace("usern", message.user.id)
 
 client.on('ready', () => { // Set Status
     client.user.setActivity('fucking people over since 1973');
+    console.log('ready')
+    setInterval(() => {
+
+    }, 3600000)
 });
 
 client.on('rateLimit', (RLI) => {
@@ -80,7 +105,7 @@ client.on('rateLimit', (RLI) => {
         client.users.fetch('542937555251888143')
             .then(user => user.send('SIFU SIFU, you have been rate limited'));
         setTimeout(() => {
-
+            rate_limit_in_last_10_s = false
         }, 1000);
         console.log('Rate Limited');
         console.log(RLI.timeout);
@@ -97,7 +122,6 @@ client.on('rateLimit', (RLI) => {
     }
 });
 
-console.log('ready')
 client.on('message', message => {
     if (message.content.includes('rob sanjit') || message.content.includes('rob 542937555251888143')) {
         messageLink = ''
